@@ -1,0 +1,10 @@
+AddDefaultCharset utf-8
+
+# commect module
+RewriteEngine on
+# if not file
+RewriteCond ${REQUEST_FILENAME} !-f
+# if not dir
+RewriteCond ${REQUEST_FILENAME} !-d
+# else redirect on
+RewriteRule ^(.*)$ index.php

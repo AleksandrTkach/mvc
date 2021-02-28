@@ -1,0 +1,20 @@
+{
+    "name": "tkach/mvc",
+    "authors": [
+        {
+            "name": "AleksandrTkach",
+            "email": "tkach.aleksandr.s@gmail.com"
+        }
+    ],
+    "require": {
+        "friendsofphp/php-cs-fixer": "^2.18"
+    },
+    "scripts": {
+        "cs-fix": "vendor/bin/php-cs-fixer fix application"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "application/"
+        }
+    }
+}

@@ -1,0 +1,7 @@
+application/config/db.php
+node_modules/*
+vendor/*
+package-lock.json
+composer.lock
+.idea/*
+.php_cs.cache
