@@ -51,9 +51,6 @@ class Controller
 
         $currentRole = isset($_SESSION['role_id']) ? $roles[$_SESSION['role_id']] : 'guest';
 
-//        if ($this->route['controller'] === 'main')
-//            $this->view->redirect('login');
-
         if (isset($_SESSION['role_id'])) {
             if ($this->route['controller'] === 'account' && $this->route['action'] !== 'logout')
                 $this->view->redirect('tasks');
