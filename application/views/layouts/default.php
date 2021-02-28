@@ -21,7 +21,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/upload"> Task upload </a>
                             </li>
-                            <? endif; ?>
+                            <?php endif; ?>
                         </ul>
                         <ul class="nav">
                             <li class="nav-item">

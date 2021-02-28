@@ -13,6 +13,12 @@
         </button>
     </form>
 
+    <?php if (isset($message) && !empty($message)): ?>
+        <div class="message-error mb-3">
+            <?php echo $message ?>
+        </div>
+    <?php endif; ?>
+
     <div class="text-center">
         <a href="/registration"> Sing Up </a>
     </div>

@@ -14,9 +14,9 @@ class Account extends Model
     {
         $user = $this->db->first('SELECT login FROM users WHERE login=:login', ['login' => $params['login']]);
 
-        if (count($user))
+        if (count($user)) {
             return false;
-        else {
+        } else {
             $this->db->query('INSERT INTO users (login, password) VALUES (:login, :password)', $params);
             return true;
         }

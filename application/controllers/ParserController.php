@@ -43,8 +43,9 @@ class ParserController extends Controller
                 str_replace($deadline, '', mb_stristr($left, $deadline))
             );
 
-            if ($this->checkDuplicate($tasksOpen, $title, $deadline))
+            if ($this->checkDuplicate($tasksOpen, $title, $deadline)) {
                 continue;
+            }
 
             $data = compact('category', 'title', 'deadline', 'description');
 
@@ -63,9 +64,11 @@ class ParserController extends Controller
     private function formatTasks(array $items): array
     {
         $res = [];
-        if (count($items))
-            foreach ($items as $item)
+        if (count($items)) {
+            foreach ($items as $item) {
                 $res[$item['title']][] = strtotime($item['deadline']);
+            }
+        }
 
         return $res;
     }

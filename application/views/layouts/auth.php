@@ -8,6 +8,14 @@
 
         <title><?php echo $title; ?></title>
     </head>
+
+    <style>
+        .message-error {
+            text-align: center;
+            color: #b22222;
+        }
+    </style>
+
     <body class="h-100">
         <div class="container h-100 d-flex justify-content-center align-items-center">
             <div class="row">

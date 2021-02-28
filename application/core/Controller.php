@@ -21,6 +21,16 @@ class Controller
     }
 
     /**
+     * @param $message
+     * @param string $status
+     * @return array
+     */
+    protected function message($message, $status = 'error'): array
+    {
+        return compact('status', 'message');
+    }
+
+    /**
      * @param $name
      * @return mixed
      */
@@ -38,10 +48,11 @@ class Controller
             '1' => 'admin',
             '2' => 'client'
         ];
+
         $currentRole = isset($_SESSION['role_id']) ? $roles[$_SESSION['role_id']] : 'guest';
 
-        if ($this->route['controller'] === 'main')
-            $this->view->redirect('login');
+//        if ($this->route['controller'] === 'main')
+//            $this->view->redirect('login');
 
         if (isset($_SESSION['role_id'])) {
             if ($this->route['controller'] === 'account' && $this->route['action'] !== 'logout')
