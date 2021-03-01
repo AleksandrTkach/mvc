@@ -1,5 +1,11 @@
 # Для начала указываем исходный образ, он будет использован как основа
+FROM node:latest AS node
 FROM php:7.4-fpm
+
+COPY --from=node /usr/local/lib/node_modules /usr/local/lib/node_modules
+COPY --from=node /usr/local/bin/node /usr/local/bin/node
+RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
+
 
 RUN apt-get update && apt-get install -y \
         curl \
@@ -12,9 +18,11 @@ RUN apt-get update && apt-get install -y \
         zlib1g-dev \
     	libzip-dev\
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) gd 
-    
- RUN docker-php-ext-install zip mysqli pdo pdo_mysql
+    && docker-php-ext-install -j$(nproc) gd
+
+RUN npm install
+
+RUN docker-php-ext-install zip mysqli pdo pdo_mysql
 
 # Куда же без composer'а.
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
