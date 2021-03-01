@@ -44,12 +44,9 @@ class Controller
 
     private function checkAccess()
     {
-        $roles = [
-            '1' => 'admin',
-            '2' => 'client'
-        ];
+        $constants = require 'application/config/constants.php';
 
-        $currentRole = isset($_SESSION['role_id']) ? $roles[$_SESSION['role_id']] : 'guest';
+        $currentRole = isset($_SESSION['role_id']) ? $constants['roles'][$_SESSION['role_id']] : 'guest';
 
         if (isset($_SESSION['role_id'])) {
             if ($this->route['controller'] === 'account' && $this->route['action'] !== 'logout')

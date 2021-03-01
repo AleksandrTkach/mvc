@@ -34,7 +34,6 @@ class DB
     {
         $query = $this->query($sql, $params);
         return $query->rowCount() > 0 ? $query->fetchAll(PDO::FETCH_ASSOC) : [];
-//        return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -46,7 +45,6 @@ class DB
     {
         $query = $this->query($sql, $params);
         return $query->rowCount() > 0 ? $query->fetch(PDO::FETCH_ASSOC) : [];
-//        return $query->fetch(PDO::FETCH_ASSOC);
     }
 
     /**

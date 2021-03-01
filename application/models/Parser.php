@@ -19,7 +19,7 @@ class Parser extends Model
     /**
      * @param $params
      */
-    public function tasksStore($params)
+    public function tasksStore($params): void
     {
         $this->db->query(
             'INSERT INTO tasks (category, title, deadline, description) VALUES (:category, :title, :deadline, :description)',

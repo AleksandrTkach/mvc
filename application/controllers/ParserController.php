@@ -10,7 +10,7 @@ class ParserController extends Controller
     {
         $tasksOpen = $this->formatTasks($this->model->getOpenTasks('title, deadline'));
 
-        $tasksNew = $this->parserTasks($tasksOpen); //TODO: output on view
+        $tasksNew = $this->parserTasks($tasksOpen); //TODO: $tasksNew for future if can output on view
 
         $this->view->redirect('tasks');
     }
@@ -74,12 +74,12 @@ class ParserController extends Controller
     }
 
     /**
-     * @param $tasksOpen
-     * @param $title
+     * @param array $tasksOpen
+     * @param string $title
      * @param $deadline
      * @return bool
      */
-    private function checkDuplicate($tasksOpen, $title, $deadline): bool
+    private function checkDuplicate(array $tasksOpen, string $title, string $deadline): bool
     {
         $res = false;
         if (isset($tasksOpen[$title])) {

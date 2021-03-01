@@ -13,7 +13,11 @@ class TasksController extends Controller
         $this->view->render('Tasks List', compact('tasks'));
     }
 
-    public function showAction($id)
+    /**
+     * @param $id
+     * @throws \Exception
+     */
+    public function showAction(int $id)
     {
         $task = $this->model->getTask($id, 'description, deadline');
 
@@ -23,7 +27,10 @@ class TasksController extends Controller
         $this->view->render('Task', $task);
     }
 
-    public function updateAction($id)
+    /**
+     * @param int $id
+     */
+    public function updateAction(int $id)
     {
         $this->model->setTaskDone($id);
 

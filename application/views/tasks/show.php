@@ -15,5 +15,4 @@
     </ul>
 
     <a href="/tasks"> Back to list </a>
-
 </div>

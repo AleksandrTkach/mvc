@@ -21,15 +21,17 @@ class Tasks extends Model
      * @param string $select
      * @return array
      */
-    public function getTask($id, $select = '*'): array
+    public function getTask(int $id, string $select = '*'): array
     {
         return $this->db->first('SELECT ' . $select . ' FROM tasks WHERE id=:id', compact('id'));
     }
 
-
-    public function setTaskDone($id)
+    /**
+     * @param int $id
+     */
+    public function setTaskDone(int $id): void
     {
-        return $this->db->query(
+        $this->db->query(
             'UPDATE tasks SET closed_by=' . $_SESSION['id'] . ', closed_at="' . date('Y-m-d H:i:s') . '" WHERE id=:id',
             compact('id')
         );
