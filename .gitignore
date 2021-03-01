@@ -1,7 +1,14 @@
-application/config/db.php
+.idea/*
+.php_cs.cache
+
 node_modules/*
 vendor/*
 package-lock.json
 composer.lock
-.idea/*
-.php_cs.cache
+
+application/config/db.php
+
+docker/mysql/*
+!docker/mysql/README.md
+docker/logs/*
+!docker/logs/README.md
