@@ -8,13 +8,26 @@ class TasksController extends Controller
 {
     public function indexAction()
     {
-        $tasks = $this->model->getAllTasks('category, title, deadline');
+        $tasks = $this->model->getAllOpenTasks('id, category, title, deadline');
 
         $this->view->render('Tasks List', compact('tasks'));
     }
-    public function showAction()
+
+    public function showAction($id)
     {
-        $this->view->render('Task');
+        $task = $this->model->getTask($id, 'description, deadline');
+
+        $date = new \DateTime($task['deadline']);
+        $task['deadline'] = $date->format('H:i:s m-d-Y');
+
+        $this->view->render('Task', $task);
+    }
+
+    public function updateAction($id)
+    {
+        $this->model->setTaskDone($id);
+
+        $this->view->redirect('tasks');
     }
 
     public function uploadAction()

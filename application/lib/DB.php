@@ -42,7 +42,7 @@ class DB
      * @param array $params
      * @return array
      */
-    public function first($sql, $params = [])
+    public function first($sql, $params = []): array
     {
         $query = $this->query($sql, $params);
         return $query->rowCount() > 0 ? $query->fetch(PDO::FETCH_ASSOC) : [];

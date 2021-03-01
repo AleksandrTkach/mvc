@@ -28,9 +28,16 @@ return [
         'action' => 'index',
         'allowed' => ['admin', 'client'],
     ],
-    'tasks/:id' => [
+    'tasks/([0-9]+)' => [
+        'replacement' => '$1',
         'controller' => 'tasks',
         'action' => 'show',
+        'allowed' => ['admin', 'client'],
+    ],
+    'tasks/update/([0-9]+)' => [
+        'replacement' => '$1',
+        'controller' => 'tasks',
+        'action' => 'update',
         'allowed' => ['admin', 'client'],
     ],
     'upload' => [

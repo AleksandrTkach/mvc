@@ -30,7 +30,7 @@ class AccountController extends Controller
                 $_SESSION['id'] = (int) $user['id'];
                 $_SESSION['login'] = $user['login'];
                 $_SESSION['role_id'] = (int) $user['role_id'];
-                $this->view->redirect('/tasks');
+                $this->view->redirect('tasks');
             } else {
                 $this->view->render('Sing in', $this->message('Incorrect login or password'));
             }
