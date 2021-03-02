@@ -26,3 +26,7 @@ password: 12345678
 /project_path/mvc.sql - dump database
 /project_path/mvc.txt - example tasks
 ```
+
+```
+composer cs-fix - fix code style 
+```

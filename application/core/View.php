@@ -49,7 +49,6 @@ class View
 
         $path = 'application/views/errors/' . $errorCode . '.php';
         if (file_exists($path)) require $path;
-
         exit;
     }
 
@@ -60,15 +59,5 @@ class View
     {
         header('location: /' . $url);
         exit;
-    }
-
-    /**
-     * @param $status
-     * @param $message
-     * @return false|string
-     */
-    public function response($status, $message)
-    {
-        return json_encode(compact('status', 'message'));
     }
 }

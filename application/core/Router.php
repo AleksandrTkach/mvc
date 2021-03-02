@@ -38,8 +38,6 @@ class Router
                     count($urlParams)
                     ? call_user_func_array(array($controller, $actionName), $urlParams)
                     : $controller->$actionName();
-
-
                 } else {
                     View::error(404);
                 }

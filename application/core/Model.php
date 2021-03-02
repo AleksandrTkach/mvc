@@ -4,7 +4,7 @@ namespace App\core;
 
 use App\lib\DB;
 
-abstract class Model //TODO: abstract
+class Model
 {
     public $db;
 

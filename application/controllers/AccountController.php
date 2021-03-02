@@ -42,7 +42,6 @@ class AccountController extends Controller
 
     public function registrationAction()
     {
-
         if (!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['password_confirmation'])) {
             $login = $_POST['login'];
             $password = $_POST['password'];
@@ -51,7 +50,7 @@ class AccountController extends Controller
             if ($password !== $passwordConfirmation) {
                 $this->view->render(
                     'Sing up',
-                    ['status' => 'error', 'message' => 'Password confirmation does not match password !']
+                    $this->message('Password confirmation does not match password !')
                 );
                 exit();
             }
@@ -60,7 +59,7 @@ class AccountController extends Controller
 
             $this->model->userStore(compact('login', 'password'))
                 ? $this->view->redirect('login')
-                : $this->view->render('Sing up', ['status' => 'error', 'message' => 'User login must be unique !']);
+                : $this->view->render('Sing up', $this->message('User login must be unique'));
 
         } else {
             $this->view->render('Sing up');
